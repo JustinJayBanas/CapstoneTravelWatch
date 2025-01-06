@@ -88,7 +88,7 @@ if ($result->num_rows > 0) {
             .then(data => {
                 console.log(data);
                 // Redirect to login page after logout
-                window.location.href = 'login.php';
+                window.location.href = '../index.php';
             })
             .catch(error => console.error('Error:', error));
         });
