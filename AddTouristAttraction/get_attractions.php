@@ -1,11 +1,8 @@
 <?php
-// Database connection details
-$servername = "localhost";
-$username = "root"; // Change if you have a different username
-$password = ""; // Change if you have a password
-$dbname = "travelwatch";
+// Connect to the database
+require '../config.php'; // Assuming this is the filename of your config
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Check connection
 if ($conn->connect_error) {

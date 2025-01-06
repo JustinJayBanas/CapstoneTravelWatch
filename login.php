@@ -3,19 +3,15 @@ session_start();
 
 $message = "";
 
-// Database connection
-$servername = "localhost";  // Change this to your database server
-$db_username = "root";      // Change this to your database username
-$db_password = "";          // Change this to your database password
-$dbname = "travelwatch";    // Change this to your database name
+require 'config.php'; // Assuming this is the filename of your config
 
-// Connect to the database
-$conn = new mysqli($servername, $db_username, $db_password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize inputs
@@ -37,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Compare passwords (plain text)
             if ($input_password === $db_password) {
                 $_SESSION['username'] = $input_username; // Save username to session
-                header("Location: geolocation.php");
+                header("Location: geolocationmap/geolocation.php");
                 exit;
             } else {
                 $message = "Invalid username or password.";
