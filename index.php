@@ -60,7 +60,7 @@ $conn->close();
 </head>
 <body>
     <h2>Login</h2>
-    <form method="POST" action="login.php">
+    <form method="POST" action="index.php">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label>
