@@ -1,0 +1,323 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f0f0f0; /* Light background */
+    height: 2000px;
+}
+header {
+    background-color: #007BFF; /* Blue background color */
+    color: white;
+    padding: 5px;
+    position: fixed; /* Make the header fixed */
+    width: 100%; /* Full width */
+    top: 0; /* Position at the top */
+
+    height: 30px; /* Adjusted height for spacing */
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    gap: 15px; /* Space between elements */
+    z-index: 1000;
+}
+
+#header-text {
+    font-size: 18px;
+}
+
+.logout-button {
+    position: relative; /* Position for tooltip */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.logout-button i {
+    font-size: 20px;
+}
+
+/* Tooltip styling */
+.tooltip-text {
+    visibility: hidden;
+    width: 50px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -15px; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Show tooltip on hover */
+.logout-button:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.logout-button:hover {
+    color: #ff4d4d; /* Icon color on hover */
+}
+
+
+#sidebar {
+    width: 200px;
+    background-color: #007BFF; /* Sidebar color */
+    color: white; /* Text color */
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+.sidebar-logo {
+    display: block;
+    margin: 0 auto 10px auto; /* Center and add spacing below */
+    max-height: 100px;
+    max-width: 100px; /* Prevent it from being too large */
+    margin-top: 50px;
+    
+}
+#content {
+    margin-left: 220px; /* Space for sidebar */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+#counter-container {
+    text-align: right;
+    margin-bottom: 10px;
+    padding-left: 400px;
+    
+}
+
+#map-container {
+    position: absolute;
+    width: 1200px; /* Match the map width */
+    height: 650px; /* Match the map height */
+    top: 400px;
+    left: 250px;
+    border: 2px solid black; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+
+
+#map {
+    width: 100%; /* Make map responsive within the container */
+    height: 100%; /* Full height of the container */
+    border-radius: 10px;
+}
+
+#map-text {
+    position: absolute; /* Position the text absolutely within the container */
+    top: -60px; /* Adjust vertical position */
+    
+    padding: 5px; /* Add padding for text */
+    border-radius: 5px; /* Rounded corners for text box */
+    z-index: 10; /* Ensure it's above the map */
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+#form-container {
+    display: none;
+    position: fixed; /* Changed to fixed */
+    top:420px; /* Position from the top */
+    left: 260px; /* Position from the left */
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 8px; /* Rounded corners */
+    width: 250px; /* Fixed width for the form */
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px; /* Adjusted padding */
+    margin: 8px 0; /* Adjusted margin */
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners */
+}
+
+input[type="submit"] {
+    background-color: #28a745; /* Submit button color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px; /* Rounded corners */
+}
+
+input[type="submit"]:hover {
+    background-color: #218838; /* Darker on hover */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#sidebar button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#sidebar button i, /* Styling for Font Awesome icons */
+#sidebar button img.icon { /* Styling for image icons */
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 16px; /* Adjust icon size */
+    color: white; /* Ensure icon color matches button text */
+}
+
+#sidebar button:hover {
+    background-color: #0056b3;
+    width: 200px;
+}
+.popup-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 12px;
+    width: 100px;
+}
+
+.popup-button.delete {
+    background-color: #dc3545;
+}
+.leaflet-popup-content button:hover {
+    opacity: 0.9; /* Slight hover effect */
+    width: 100px;
+}
+
+
+
+/* Add styling to make the form header visible for dragging */
+#form-container {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+
+/* Styling for draggable header */
+#form-header {
+    cursor: move;
+    background-color: #f1f1f1;
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+button:hover {
+    background-color: #0056b3;
+    width: 300px;
+}
+#counter-container {
+    position: absolute; /* Keep the container absolute */
+    top: 200px; /* Adjust distance from the top to move lower */
+    left: 250px; /* Keep the same distance from the left */
+    display: flex;
+    justify-content: space-between; /* Maintain existing layout */
+    align-items: center; /* Center align vertically */
+    width: 300px; /* Adjust width as needed */
+    height: 80px; /* Adjust height if necessary */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#counter-text {
+    position: absolute; /* Keep text positioned absolutely */
+    top: -60px; /* Adjust vertical position down */
+    left: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    
+    padding: 5px; /* Padding for the text */
+    border-radius: 4px; /* Rounded corners for the text box */
+    z-index: 10; /* Ensure it's above the counter container */
+}
+
+
+.counter-title-container {
+    display: flex;
+    flex-direction: column; /* Stack title and icon vertically */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.counter-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#counter-container img {
+    width: 50px; /* Smaller size */
+    height: 50px; /* Smaller size */
+    margin-top: 5px; /* Adjust this value to control spacing above the image */
+    margin-bottom: 5px; /* Space below the image if needed */
+    margin-left: 30px;
+    align-self: flex-start; /* Align the image to the start (top) of the container */
+}
+
+#attraction-count {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 20px;
+}
+#totaltitle-text {
+    position: absolute; /* Keep text positioned absolutely */
+    top: -120px; /* Adjust vertical position down */
+    left: -10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+   
+    border-radius: 4px; /* Rounded corners for the text box */
+    z-index: 10; /* Ensure it's above the counter container */
+    width: 400px;
+   
+}
+
+

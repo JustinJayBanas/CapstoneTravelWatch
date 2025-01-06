@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f0f0f0; /* Light background */
+}
+header {
+    background-color: #007BFF; /* Blue background color */
+    color: white;
+    padding: 5px;
+    position: fixed; /* Make the header fixed */
+    width: 100%; /* Full width */
+    top: 0; /* Position at the top */
+    height: 30px; /* Adjusted height for spacing */
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    gap: 15px; /* Space between elements */
+    z-index: 1000;
+}
+
+#header-text {
+    font-size: 18px;
+}
+
+.logout-button {
+    position: relative; /* Position for tooltip */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.logout-button i {
+    font-size: 20px;
+}
+
+/* Tooltip styling */
+.tooltip-text {
+    visibility: hidden;
+    width: 50px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -15px; /* Position below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Show tooltip on hover */
+.logout-button:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.logout-button:hover {
+    color: #ff4d4d; /* Icon color on hover */
+}
+
+
+#sidebar {
+    width: 200px;
+    background-color: #007BFF; /* Sidebar color */
+    color: white; /* Text color */
+    padding: 15px;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+.sidebar-logo {
+    display: block;
+    margin: 0 auto 10px auto; /* Center and add spacing below */
+    max-height: 100px;
+    max-width: 100px; /* Prevent it from being too large */
+    margin-top: 50px;
+    
+}
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#sidebar button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#sidebar button i, /* Styling for Font Awesome icons */
+#sidebar button img.icon { /* Styling for image icons */
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 16px; /* Adjust icon size */
+    color: white; /* Ensure icon color matches button text */
+}
+
+#sidebar button:hover {
+    background-color: #0056b3;
+    width: 200px;
+}
+
+#content {
+    margin-left: 220px; /* Space for sidebar */
+    padding: 20px;
+    flex-grow: 1;
+}
+h1, h2, h3 {
+    color: #333; /* Darker text for headings */
+}
+input[type="text"], input[type="number"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 1100px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+#attraction-select{
+    width: 1120px;
+}
+#type-of-attraction{
+    width: 1120px;
+}
+#province-select{
+    width: 400px;
+}
+#country-select{
+    width: 400px;
+}
+#number-of-tourists-phil, 
+#number-of-tourists-non-phil {
+    width: 380px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.submit-container {
+    margin-top: 20px;
+}
+.header-buttons {
+    position: absolute;
+    top: 70px;
+    right: 32px;
+    
+}
+.header-buttons button {
+    margin-left: 10px;
+    background-color: #007BFF; /* Button color */
+    color: white;
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+#accommodation-form {
+    display: none; /* Initially hidden */
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 400px;
+}
+.inline-button {
+    display: inline-block;
+    margin-left: 10px;
+}
+/* New styles for residence lists */
+.residence-list {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.residence-item {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remove-button {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+.remove-button:hover {
+    background-color: #c82333;
+}
+.form-box {
+    width: 100%;
+    max-width: 1150px;
+    margin: 20px 0 20px 20px; /* Adds left margin */
+    margin-top: 150px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.form-box h3 {
+    margin-top: 0;
+    text-align: left;
+}
+
+.submit-container {
+    text-align: left;
+    margin-top: 10px;
+}
+h1 {
+    position: absolute; /* Keep text positioned absolutely */
+   top: 60px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+   left: 260px;
+    border-radius: 4px; /* Rounded corners for the text box */
+    z-index: 10; /* Ensure it's above the counter container */
+    width: 600px;
+}

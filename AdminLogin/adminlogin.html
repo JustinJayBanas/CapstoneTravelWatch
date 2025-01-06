@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWatch Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       
+    </style>
+    <script>
+        function showModal() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            if (error) {
+                document.getElementById('errorMessage').textContent = decodeURIComponent(error);
+                document.getElementById('errorMessage').style.display = "block";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('errorMessage').style.display = "none";
+        }
+
+        // Remember Me functionality
+        function handleRememberMe() {
+            const usernameField = document.getElementById('username');
+            const rememberMeCheckbox = document.getElementById('remember');
+            
+            if (rememberMeCheckbox.checked) {
+                // Save username in a cookie for 30 days
+                document.cookie = `username=${usernameField.value}; max-age=2592000; path=/`;
+            } else {
+                // Remove the username cookie if "Remember Me" is unchecked
+                document.cookie = 'username=; max-age=0; path=/';
+            }
+        }
+
+        function checkRememberMe() {
+            const cookies = document.cookie.split(';');
+            const usernameCookie = cookies.find(cookie => cookie.trim().startsWith('username='));
+            
+            if (usernameCookie) {
+                const username = usernameCookie.split('=')[1];
+                document.getElementById('username').value = username;
+                document.getElementById('remember').checked = true;
+            }
+        }
+
+        window.onload = function() {
+            showModal();
+            checkRememberMe();  // Check if "Remember Me" cookie exists and prefill username
+        }
+    </script>
+</head>
+<body>
+    <div class="background-container">
+        <div class="logo-container">
+            <img src="449352644_2940946599418378_5881607458101839196_n.png" alt="TravelWatch Logo" class="logo">
+        </div>
+        <div class="login-container">
+            <form class="login-form" method="post" action="login.php" onsubmit="handleRememberMe()">
+                <h2>Sign in to access Admin Account</h2>
+
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+
+                <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember Me</label>
+                </div>
+
+                <!-- Error Message (inside form) -->
+                <p id="errorMessage" style="display: none;"></p>
+
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

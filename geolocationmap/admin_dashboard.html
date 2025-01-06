@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; }
+    </style>
+</head>
+<body>
+    <h1>Live User Locations</h1>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([0, 0], 2); // Center on the world map
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var userMarkers = {}; // Store user markers by username
+
+        function fetchLocations() {
+            fetch('get_locations.php')
+                .then(response => response.json())
+                .then(data => {
+                    // Create a set of current usernames
+                    let currentUsernames = new Set();
+
+                    data.forEach(user => {
+                        currentUsernames.add(user.username);
+                        if (!userMarkers[user.username]) {
+                            // Create a new marker for new users
+                            userMarkers[user.username] = L.marker([user.latitude, user.longitude]).addTo(map)
+                                .bindPopup(user.username);
+                        } else {
+                            // Update the position of existing markers
+                            userMarkers[user.username].setLatLng([user.latitude, user.longitude]);
+                        }
+                    });
+
+                    // Remove markers for users who are no longer in the database
+                    for (let username in userMarkers) {
+                        if (!currentUsernames.has(username)) {
+                            map.removeLayer(userMarkers[username]); // Remove marker from map
+                            delete userMarkers[username]; // Remove marker from storage
+                        }
+                    }
+                });
+        }
+
+        // Fetch locations every 5 seconds
+        setInterval(fetchLocations, 5000);
+    </script>
+</body>
+</html>

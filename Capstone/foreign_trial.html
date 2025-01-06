@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWatch Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar h1 {
+            margin: 0;
+            color: white;
+        }
+        .navbar input {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            width: 70%;
+        }
+        .container {
+            padding: 10px;
+        }
+        .welcome {
+            margin-bottom: 15px;
+        }
+        .recap {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .chart {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .chart-placeholder {
+            height: 150px;
+            background-color: #666;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .trending {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .card {
+            background-color: #555;
+            border-radius: 5px;
+            padding: 5px;
+            flex: 1 1 calc(33% - 10px);
+            max-width: calc(33% - 10px);
+            box-sizing: border-box;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar input {
+                width: 60%;
+            }
+            .card {
+                flex: 1 1 calc(100% - 10px);
+                max-width: calc(100% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>TravelWatch</h1>
+    <input type="text" placeholder="Search...">
+</div>
+
+<div class="container">
+    <div class="welcome">
+        <h2>Welcome to Albay!</h2>
+        <p>Explore the beauty and wonder of Albay, a province in the Bicol region of the Philippines, known for its stunning natural landscapes, vibrant culture, and historic landmarks. Whether you are an adventure seeker, a history enthusiast, or a nature lover, Albay has something special for everyone.</p>
+    </div>
+
+    <div class="recap">
+        <h3>Monthly Recap Report</h3>
+        <p>Stay informed with the latest tourism statistics in Albay. Our monthly recap report provides detailed insights into the number of visitors, tourist arrivals, and trending local and foreign spots.</p>
+    </div>
+
+    <div class="chart">
+        <h4>Monthly Tourist Arrivals</h4>
+        <div class="chart-placeholder">
+            [Chart Placeholder]
+        </div>
+    </div>
+
+    <h3>Trending with Tourist</h3>
+    <div class="trending">
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Trending 1">
+            <p>Local Tour</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Trending 2">
+            <p>Photography</p>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Trending 3">
+            <p>Adventure Sports</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>© 2024 TravelWatch. All rights reserved.</p>
+</div>
+
+</body>
+</html>

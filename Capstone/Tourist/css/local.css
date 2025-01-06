@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.signup-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Header with illustration */
+.signup-header img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Heading */
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* Paragraph */
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+/* Button */
+.otp-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.otp-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-group .back-btn,
+.btn-group .signup-btn {
+    width: 48%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-group .back-btn:hover,
+.btn-group .signup-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Links */
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the checkbox label hover effect */
+label[for="terms"] {
+    transition: background-color 0.3s, color 0.3s;
+    padding: 5px;
+    border-radius: 5px;
+}
+label[for="terms"]:hover {
+    background-color: #007BFF; /* Highlight color */
+    color: white;
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
+}
+
+/* Modal content for mobile */
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto; /* Adjusted for mobile view */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Modal width for mobile device */
+    max-width: 400px; /* Max width to ensure it's not too wide on larger screens */
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Highlight email input in red when there's an error */
+.email-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Display error messages */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+/* Style the case-sensitivity warning */
+.case-sensitive-warning {
+    font-size: 0.85em;
+    color: gray;
+    margin-top: 5px;
+}
